@@ -7,6 +7,7 @@ require 'rspec/rails'
 require 'capybara/rails'
 
 include Warden::Test::Helpers
+
 Warden.test_mode!
 
 ActiveRecord::Migration.maintain_test_schema!
@@ -21,4 +22,5 @@ RSpec.configure do |config|
   config.after(:each) { DatabaseCleaner.clean }
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
+  config.include FactoryGirl::Syntax::Methods
 end
