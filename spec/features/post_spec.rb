@@ -50,6 +50,5 @@ describe 'navigate' do
       click_on "Save"
       expect(User.last.posts.last.rationale).to eq("UserAssociation")
     end
-
   end
 end
