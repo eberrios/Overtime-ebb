@@ -34,3 +34,5 @@ group :development do
 end
 
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
+#Gem for notification
+gem 'gritter', '~> 1.2'
