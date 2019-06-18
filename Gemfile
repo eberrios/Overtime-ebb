@@ -40,3 +40,7 @@ gem 'gritter', '~> 1.2'
 # GEM Admin user
 gem 'administrate'
 gem 'bourbon'
+
+#object oriented authorizartion for Rails applications
+
+gem 'pundit', '~> 2.0', '>= 2.0.1'
