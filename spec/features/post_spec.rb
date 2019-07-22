@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'navigate' do
   before do
-    @user = FactoryGirl.create(:user)
+    @user = FactoryBot.create(:user)
     login_as(@user, :scope => :user)
   end
 
@@ -15,15 +15,24 @@ describe 'navigate' do
     end
 
     it 'has a list of post' do
-      post1 = FactoryGirl.create(:post)
-      post2 = FactoryGirl.create(:second_post)
+      post1 = FactoryBot.create(:post)
+      post2 = FactoryBot.create(:second_post)
       visit posts_path
-      expect(page).to have_content(/rationale|content/)
+      expect(page).to have_content(/Rationale/)
+    end
+
+    it 'has a scope so that only post creators can see their posts' do
+      post1 = Post.create(date: Date.today, rationale: 'asdf', user_id: @user.id)
+      post2 = Post.create(date: Date.today, rationale: 'asdf', user_id: @user.id)
+
+      other_user = User.create(first_name: 'Non', last_name:'Authorized', email: 'nonauth@example.com', password:'asdfasdf', password_confirmation:'asdfasdf')
+      post_from_other_user = Post.create(date: Date.today, rationale: "This post shouldn't be seen", user_id: other_user.id)
+      visit posts_path
+      expect(page).to_not have_content(/This post shouldn't be seen/)
     end
   end
 
   describe 'new' do
-    
     it 'new post in homepage' do
       visit root_path
       click_link 'new_post_from_nav'
@@ -33,7 +42,9 @@ describe 'navigate' do
 
   describe 'delete' do
     it 'can be deleted' do
-      @post = FactoryGirl.create(:post)
+      @post = FactoryBot.create(:post)
+      # TODO update refactor
+      @post.update(user_id: @user.id)
       visit posts_path
       click_link "delete_post_#{@post.id}_from_index"
       expect(page.status_code).to eq(200)
@@ -66,7 +77,7 @@ describe 'navigate' do
 
   describe 'edit' do
     before do
-      @non_authorizer_user = FactoryGirl.create(:non_authorizer_user)
+      @non_authorizer_user = FactoryBot.create(:non_authorizer_user)
       login_as(@non_authorizer_user, :scope => :user)
       @edit_post = Post.create(date: Date.today, rationale: 'edit post spec', user_id: @non_authorizer_user.id)
     end
@@ -82,7 +93,7 @@ describe 'navigate' do
 
     it 'cannot be edited by a non authorized user' do
       logout(:user)
-      non_authorizer_user = FactoryGirl.create(:non_authorizer_user)
+      non_authorizer_user = FactoryBot.create(:non_authorizer_user)
       login_as(non_authorizer_user, :scope => :user)
 
       visit edit_post_path(@edit_post)

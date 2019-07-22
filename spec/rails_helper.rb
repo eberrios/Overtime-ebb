@@ -5,6 +5,8 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rails'
+require 'factory_bot_rails'
+FactoryBot.definition_file_paths << File.expand_path('/factories/', __FILE__)
 
 include Warden::Test::Helpers
 
@@ -22,5 +24,5 @@ RSpec.configure do |config|
   config.after(:each) { DatabaseCleaner.clean }
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
-  config.include FactoryGirl::Syntax::Methods
+  config.include FactoryBot::Syntax::Methods
 end

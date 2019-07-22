@@ -23,7 +23,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.8'
   gem 'capybara', '>= 2.15'
   gem 'database_cleaner'
-  gem 'factory_girl_rails', '~> 4.9'
+  #gem 'factory_girl_rails', '~> 4.9'
+  gem 'factory_bot_rails'
 end
 
 group :development do
