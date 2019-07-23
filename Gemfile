@@ -23,12 +23,12 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.8'
   gem 'capybara', '>= 2.15'
   gem 'database_cleaner'
-  #gem 'factory_girl_rails', '~> 4.9'
+  # gem 'factory_girl_rails', '~> 4.9'
   gem 'factory_bot_rails'
 end
 
 group :development do
-  gem 'web-console',  '>= 3.3.0'
+  gem 'web-console', '>= 3.3.0'
   gem 'spring'
     gem 'listen', '>= 3.0.5', '< 3.2'
     gem 'spring-watcher-listen', '~> 2.0.0'
@@ -42,6 +42,8 @@ gem 'gritter', '~> 1.2'
 gem 'administrate'
 gem 'bourbon'
 
-#object oriented authorizartion for Rails applications
-
+# object oriented authorizartion for Rails applications
 gem 'pundit', '~> 2.0', '>= 2.0.1'
+
+# twilio 
+gem 'twilio-ruby', '~> 5.25.1'
