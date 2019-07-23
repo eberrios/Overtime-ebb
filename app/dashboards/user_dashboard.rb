@@ -17,6 +17,7 @@ class UserDashboard < Administrate::BaseDashboard
     type: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    phone: Field::String,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -37,6 +38,7 @@ class UserDashboard < Administrate::BaseDashboard
     :posts,
     :id,
     :email,
+    :phone,
     :password,
     :first_name,
     :last_name,
@@ -53,6 +55,7 @@ class UserDashboard < Administrate::BaseDashboard
     :password,
     :first_name,
     :last_name,
+    :phone,
   ].freeze
 
   # Overwrite this method to customize how admin users are displayed
