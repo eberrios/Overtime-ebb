@@ -9,7 +9,7 @@ FactoryBot.define do
     password_confirmation { 'asdfasdf' }
     first_name  { 'Ernesto' }
     last_name   { 'Berrios' }
-    phone       { '555444333' }
+    phone       { '5554443330' }
   end
 
   factory :admin_user, class: 'AdminUser' do
@@ -18,7 +18,7 @@ FactoryBot.define do
     password_confirmation { 'asdfasdf' }
     first_name { 'Admin' }
     last_name  { 'User' }
-    phone       { '555444333' }
+    phone       { '5554443330' }
   end
 
   factory :non_authorizer_user, class: 'User' do
