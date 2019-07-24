@@ -27,6 +27,6 @@ FactoryBot.define do
     password_confirmation { 'asdfasdf' }
     first_name  { 'Non' }
     last_name   { 'Authorizer' }
-    phone       { '555444333' }
+    phone       { '5554443330' }
   end
 end
