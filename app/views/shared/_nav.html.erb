@@ -18,11 +18,15 @@
       <ul class ="dropdown-menu">
 <!-- TODO -->
 
-        <% if current_user.try(:type)=='AdminUser'%>
+        <% if policy(AuditLog).index? #current_user.try(:type)=='AdminUser' %>
           <li>
             <%= link_to "Admin Dashboard", admin_root_path %>
           </li>
           <li class="divider"></li> 
+          <li>
+            <%= link_to "Audit Log", audit_logs_path %>
+          </li>
+
         <% end %>
 <!-- TODO -->
         <li>
