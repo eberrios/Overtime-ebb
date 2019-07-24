@@ -4,8 +4,11 @@ RSpec.describe Post, type: :model do
   describe 'Creation' do
     before do
       @user = FactoryBot.create(:user)
-      login_as(@user, :scope => :user)
-      @post = Post.create(date: Date.today, rationale: 'Anything', user_id:  @user.id, overtime_request: 1.1)
+      login_as(@user, scope: :user)
+      @post = Post.create(date: Date.today,
+                          rationale: 'Anything',
+                          user_id: @user.id,
+                          overtime_request: 1.1)
     end
     it 'can be created' do
       expect(@post).to be_valid
@@ -18,7 +21,7 @@ RSpec.describe Post, type: :model do
       @post.overtime_request = nil
       expect(@post).to_not be_valid
     end
-    
+
     it 'has an overtime_rquerst greater then 0.0' do
       @post.overtime_request = 0.0
       expect(@post).to_not be_valid
