@@ -48,3 +48,6 @@ gem 'pundit', '~> 2.0', '>= 2.0.1'
 # twilio 
 gem 'twilio-ruby', '~> 5.25.1'
 gem 'dotenv-rails', :groups => [:development, :test]
+
+# pagination
+gem 'kaminari'
