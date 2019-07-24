@@ -13,12 +13,16 @@ describe 'AuditLog Feature' do
     end
 
     it 'render audit log content' do
-      
       visit audit_logs_path
       expect(page).to have_content(/BERRIOS, ERNESTO/)
     end
 
-    xit 'cannot be accessed by non admin users' do
+    it 'cannot be accessed by non admin users' do
+      logout(:user)
+      user = FactoryBot.create(:user)
+      login_as(user, scope: :user)
+      visit audit_logs_path
+      expect(current_path).to eq(root_path)
     end
   end
 end
