@@ -1,3 +1,5 @@
 class StaticController < ApplicationController
-  def static; end
+  def home
+    @pending_approvals = Post.where(status: :submitted)
+  end
 end
