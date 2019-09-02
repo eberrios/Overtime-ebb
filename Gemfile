@@ -51,3 +51,4 @@ gem 'dotenv-rails', :groups => [:development, :test]
 
 # pagination
 gem 'kaminari'
+gem "nokogiri", ">= 1.10.4"
