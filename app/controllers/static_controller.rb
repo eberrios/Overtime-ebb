@@ -4,7 +4,8 @@ class StaticController < ApplicationController
       @pending_approvals = Post.submitted
       @recent_audit_items = AuditLog.last(10)
     else
-      # sommething relsr
+      
+      @pending_audit_confirmations = AuditLog.where("user_id= #{current_user[:id]}")#current_user.audit_logs
     end
   end
 end
