@@ -6,7 +6,12 @@
   </div>
 
 
-  <div class='pending-home'>
-    <p>hola</p>
+  <div class='pending-home row'>
+    <h2>Confirmation log</h2>
+    <hr>
+    <%= render 'confirmation_log' %>
+    <div class='clearfix'></div>
+    <hr>
+    <%= link_to 'View all items', audit_logs_path, class: 'btn btn-primary'%>
   </div>
 </div>
